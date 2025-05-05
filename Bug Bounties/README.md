@@ -1,2 +1,2 @@
-Bug Bounty write ups
+  **Bug Bounty write ups**
 Coming soon...
