@@ -55,12 +55,6 @@ Once the authentication barrier was bypassed, the application attempted to parse
 
 
 
-  
-  
-- 
-- No HTTPS
 
 ### Lessons Learned
-- Always check for simple but critical misconfigurations
-- The importance of reporting format and communication in real-world pentests
 
