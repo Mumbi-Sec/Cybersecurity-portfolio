@@ -6,7 +6,7 @@ Challenge Credit: Devnull X ZedBounty
 
 ### Scenario
 
-Vivacell is days away from launching their flagship bio-tech platform: Everything looks perferct on paper, but engineers keep encountering anomalies that vanish before they csn be logged. Management call it a glitch. The lead developer calls it "impossible." Youve been quietly invited to validate the system before it goes live. No headlines. No panic. Just you,the code, and whatever its hiding.
+Vivacell is days away from launching their flagship bio-tech platform: Everything looks perferct on paper, but engineers keep encountering anomalies that vanish before they can be logged. Management call it a glitch. The lead developer calls it "impossible." Youve been quietly invited to validate the system before it goes live. No headlines. No panic. Just you,the code, and whatever its hiding.
 
 ### Tools Used
 - Burp Suite
@@ -21,7 +21,8 @@ Vivacell is days away from launching their flagship bio-tech platform: Everythin
  
  **Configuration Files (zip file)**
   
-![Screenshot_2025-05-05_15_46_47](https://github.com/user-attachments/assets/da670ee4-741d-49c0-84b1-d591dfbbd262)
+![c](https://github.com/user-attachments/assets/d87c1c3b-c666-4a45-86d9-9b3cccfd0ad1)
+
 
 
   *Panel.php is an interesting file*
@@ -38,18 +39,24 @@ Something already smells vulnerable.....lol
 ![Screenshot_2025-05-05_15_56_47](https://github.com/user-attachments/assets/3be39ff4-0084-47eb-b2a5-064c451f87ef)
 
   
-- Hardcoded credentials discovered via *panel.php* file.....bullseye!
-  
-  
+**Lets open up the panel.php file**
+
   ![cred](https://github.com/user-attachments/assets/0e8ee05e-73ec-4911-9893-8ba698b11f81)
 
-- Lets take out the big guns now......Burpsuite!
   
-    --> Intercept request with proxy
+- Hardcoded credentials discovered via *panel.php* file.....bullseye!
   
-    --> Insert credentials and spoofed IP in HTTP Header.
+- We have admin username and password
   
-    --> forward request
+- A whole ip address and what looks like a vpn server name....hmmm
+
+**Lets take out the big guns now......Burpsuite!**
+
+  --> Intercept request with proxy
+  
+  --> Insert credentials and spoofed IP in HTTP Header.
+  
+  --> forward request
 
   
   ![Screenshot_2025-05-05_14_46_34](https://github.com/user-attachments/assets/878e17fb-3584-49c0-b823-fd9ab6d8b948)
@@ -78,12 +85,15 @@ Impact: High/severe
 
  --> Content type to application/xml
 
- --> Insert test payload in message body
+ --> Insert test payload in message body([View Payload]https://github.com/Mumbi-Sec/PayloadsAllThings/blob/b9e847decb60d436f632a33f48f68fabaa324900/XXE%20Injection/Files/Classic%20XXE%20-%20etc%20passwd.xml)
+ 
+
 
 
 ![Screenshot_2025-05-05_14_24_41](https://github.com/user-attachments/assets/2139a878-a07a-4ecf-9284-3390de2de149)
 
- *DomDocument::loadXML() is an interesting find*
+
+ *Look at this server.....so..**responsive** lol*
 
  **3. Exploit**
  
@@ -93,15 +103,15 @@ Impact: High/severe
 
  --> Change the request method GET to POST
 
-POST /panel.php?username=v1v4c3ll4dm1n&password=v1va_la_v1da@123 HTTP/1.1
+    POST /panel.php?username=v1v4c3ll4dm1n&password=v1va_la_v1da@123 HTTP/1.1
  
-Host: challenge.zedbounty.com
+    Host: challenge.zedbounty.com
 
-X-VIVACELL-VPN: 41.18.611.104
+    X-VIVACELL-VPN: 41.18.611.104
 
-Content-Type: application/xml
+    Content-Type: application/xml
 
-Connection: close
+    Connection: close
 
 --> Paste the payload in the message body
 
@@ -132,6 +142,7 @@ Connection: close
 
 
 ### 4. Mitigation
+
 - Validate or sanitize incoming XML payloads.
 
 - Disable entity Loading.
@@ -139,10 +150,17 @@ Connection: close
 - Restrict LIBXML_NOENT usage.
 
 ### 5. Lessons Learned
-- Bypassing directory access controls using HTTP Header requests
+
+- Bypassing directory access controls using HTTP Header requests.
   
 - DOMDocument::loadXML() parser when used with LIBXML_NOENT can expose sensitive files on the web server
 
-- IP Spoofing to bypass authentication with hardcoded credentials
+- Never trust user supplied headers to validate ip addresses!
 
 ### Thank you.....
+
+## Credits and sources
+
+https://zedbounty.com/
+
+https://portswigger.net/web-security/xxe
