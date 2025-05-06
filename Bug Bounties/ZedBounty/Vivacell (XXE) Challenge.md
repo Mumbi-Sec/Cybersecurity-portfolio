@@ -2,7 +2,7 @@
 
 This challenge demonstrates the XML external entity vulnerability that allows an attacker to interfere with an application's processing of XML data.
 
-Challenge Credit: Devnull X ZedBounty
+Challenge Credit: Shihab Mirza X ZedBounty
 
 ### Scenario
 
