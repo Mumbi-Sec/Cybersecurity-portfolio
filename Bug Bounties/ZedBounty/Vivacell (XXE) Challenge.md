@@ -16,16 +16,20 @@ Vivacell is days away from launching their flagship bio-tech platform: Everythin
 - DomDocument analysis
 
 **Environment**
+
 ![Screenshot_2025-05-05_13_36_35](https://github.com/user-attachments/assets/f062c120-325b-47f0-ab35-82652efe44c7)
 
  
  **Configuration Files (zip file)**
+
+ Since its a whitebox test,configuration files where provided in a zip file.
+ 
   
 ![c](https://github.com/user-attachments/assets/d87c1c3b-c666-4a45-86d9-9b3cccfd0ad1)
 
 
 
-  *Panel.php is an interesting file*
+  *Panel.php looks like an interesting file*
 
 
 ### Key Findings
