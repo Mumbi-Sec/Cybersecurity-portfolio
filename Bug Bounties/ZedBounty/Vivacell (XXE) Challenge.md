@@ -152,7 +152,9 @@ Whats happening is that the server is able to recieve external data (In the form
 
 you can also get the same result using the curl tool by pasting your payload in a file, then use the following command on your terminal:
 
-       curl -X POST "https://challenge.zedbounty.com/panel.php?username=v1v4c3ll4dm1n&password=v1va_la_v1da@123" -H "X-VIVACELL-VPN: 41.18.611.104" -H "Content-Type: application/xml" --data-binary @payloadfile.xml
+       curl --data-binary @payloadxxefile.xml -H "Content-Type: application/xml" -H "X-VIVACELL-VPN: 41.18.611.104" -X POST "https://challenge.zedbounty.com/panel.php?username=v1v4c3ll4dm1n&password=v1va_la_v1da@123"
+
+
 
 
 
