@@ -6,6 +6,8 @@ Challenge Credit: Devnull X ZedBounty
 
 ### Scenario
 
+Vivacell is days away from launching their flagship bio-tech platform: Everything looks perferct on paper, but engineers keep encountering anomalies that vanish before they csn be logged. Management call it a glitch. The lead developer calls it "impossible." Youve been quietly invited to validate the system before it goes live. No headlines. No panic. Just you,the code, and whatever its hiding.
+
 ### Tools Used
 - Burp Suite
 - Curl
@@ -26,6 +28,7 @@ Challenge Credit: Devnull X ZedBounty
 
 
 ### Key Findings
+
 **1. Access Control bypass**
 
 Upon trying to access panel.php on the live web server our access was denied. 
@@ -82,7 +85,7 @@ Impact: High/severe
 
  *DomDocument::loadXML() is an interesting find*
 
- **4. Exploit**
+ **3. Exploit**
  
  The panel.php endpoint accepts XML input via POST with the header Content-Type: application/xml. 
  
@@ -128,18 +131,18 @@ Connection: close
 *Viola.......Flag Captured: **ZB{xx3_ch3mic4l_r3act1on}***
 
 
-### Mitigation
+### 4. Mitigation
 - Validate or sanitize incoming XML payloads.
 
 - Disable entity Loading.
 
 - Restrict LIBXML_NOENT usage.
 
-### Lessons Learned
+### 5. Lessons Learned
 - Bypassing directory access controls using HTTP Header requests
   
 - DOMDocument::loadXML() parser when used with LIBXML_NOENT can expose sensitive files on the web server
 
 - IP Spoofing to bypass authentication with hardcoded credentials
 
-### Thank you for reaching thus far.....
+### Thank you.....
