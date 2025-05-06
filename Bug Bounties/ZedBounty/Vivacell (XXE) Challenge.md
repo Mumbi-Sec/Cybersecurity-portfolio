@@ -77,7 +77,7 @@ Something already smells vulnerable.....lol
 
 XML external entity injection (also known as XXE) is a web security vulnerability that allows an attacker to interfere with an application's processing of XML data. - Portswigger
 
-Whats basically happening is the server is able to recieve external data (In the form of XML) and processes this data without proper handling hence the parser expands the input and reveals files on the server.
+Whats happening is that the server is able to recieve external data (In the form of XML) and processes this data without proper handling hence the parser expands the input and reveals files on the server.
 
 Classification: XML External Entity (XXE) Injection
 
