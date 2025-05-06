@@ -10,6 +10,7 @@ Vivacell is days away from launching their flagship bio-tech platform: Everythin
 
 ### Tools Used
 - Burp Suite
+- kali linux (OS)
 - Curl
 - Mozilla Firefox
 - XML Payloads (Payloadallthings)
@@ -145,6 +146,14 @@ Whats happening is that the server is able to recieve external data (In the form
 --> Check The response tab
 
 *Viola.......Flag Captured: **ZB{xx3_ch3mic4l_r3act1on}***
+
+
+**Alternative:**
+
+you can also use curl by pasting your payload in a file, then use the following command on your terminal:
+
+       curl -X POST "https://challenge.zedbounty.com/panel.php?username=v1v4c3ll4dm1n&password=v1va_la_v1da@123" -H "X-VIVACELL-VPN: 41.18.611.104" -H "Content-Type: application/xml" --data-binary @payloadfile.xml
+
 
 
 ### 4. Mitigation
