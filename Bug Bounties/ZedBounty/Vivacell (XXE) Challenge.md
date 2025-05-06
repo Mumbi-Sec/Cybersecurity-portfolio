@@ -50,7 +50,18 @@ This challenge demonstrates the XML external entity vulnerability that allows an
 
 Once the authentication barrier was bypassed, the application attempted to parse incoming XML payloads using the DOMDocument class with LIBXML_NOENT, which enables entity expansion — a classic vector for XXE attacks.
 
-![XXE](https://github.com/user-attachments/assets/b945538f-799c-484e-be5f-ad3993572de9)
+ --> Send request to Burp repeater
+
+ --> Change method from GET to POST
+
+ --> Content type to application/xml
+
+ --> Insert test payload in message body
+
+
+![Screenshot_2025-05-05_14_24_41](https://github.com/user-attachments/assets/2139a878-a07a-4ecf-9284-3390de2de149)
+
+ *DomDocument::loadXML() is a vulnerable xml class*
 
 
 
