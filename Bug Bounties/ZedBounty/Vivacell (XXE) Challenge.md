@@ -79,9 +79,9 @@ XML external entity injection (also known as XXE) is a web security vulnerabilit
 
 Whats happening is that the server is able to recieve external data (In the form of XML) and processes this data without proper handling hence the parser expands the input and reveals files on the server.
 
-Classification: XML External Entity (XXE) Injection
+**Classification:** XML External Entity (XXE) Injection
 
-Impact: High/severe 
+**Impact:** High/severe 
 
  --> Send request to Burp repeater
 
@@ -89,7 +89,9 @@ Impact: High/severe
 
  --> Content type to application/xml
 
- --> Insert test payload in message body([View Payload]https://github.com/Mumbi-Sec/PayloadsAllThings/blob/b9e847decb60d436f632a33f48f68fabaa324900/XXE%20Injection/Files/Classic%20XXE%20-%20etc%20passwd.xml)
+ --> Insert test payload in message body 
+ 
+> payload from PayloadsAllThings [View Payload](https://github.com/Mumbi-Sec/PayloadsAllThings/blob/b9e847decb60d436f632a33f48f68fabaa324900/XXE%20Injection/Files/Classic%20XXE%20-%20etc%20passwd.xml)
  
 
 
