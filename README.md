@@ -9,7 +9,4 @@ Welcome! This repo showcases my hands-on work and learning in cybersecurity.
 - Bash scripts for recon and automation  
 - Bug bounty write-ups
 
-💡 **Mission:** Secure the internet by thinking like an attacker  
-🔎 **Mindset:** Curious. Persistent. Always improving.
-
 Let’s connect, collaborate, or hack something together.
